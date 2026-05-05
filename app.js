@@ -207,20 +207,11 @@ async function sendToModel(messages) {
     try {
         updateStatus('Generating');
 
-        // Check if Puter.js has Grok 4.3 support
-        if (typeof puter !== 'undefined' && puter.ai && puter.ai.chat) {
-            // Try real Puter.js call
-            const response = await puter.ai.chat({
-                messages: messages.map(m => ({ role: m.role, content: m.content })),
-                model: 'grok-4.3'
-            });
-            return response.message.content;
-        } else {
-            // Mock fallback
-            updateStatus('Mock Mode');
-            await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
-            return generateMockResponse(messages[messages.length - 1].content);
-        }
+        // Puter.js integration requires the app to be hosted on Puter platform
+        // For static hosting like GitHub Pages, use mock fallback
+        updateStatus('Mock Mode');
+        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+        return generateMockResponse(messages[messages.length - 1].content);
     } catch (error) {
         updateStatus('Error');
         console.error('Model error:', error);

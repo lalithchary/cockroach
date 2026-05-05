@@ -48,25 +48,14 @@ No data is persisted to localStorage or any backend storage.
 
 ## Puter.js Integration
 
-The app attempts to use Puter.js for AI model calls:
+The app loads Puter.js but uses a mock fallback for AI responses, as Puter.js AI features require the app to be hosted on the Puter platform with user authentication.
 
-```javascript
-// In app.js, the sendToModel function tries:
-if (typeof puter !== 'undefined' && puter.ai && puter.ai.chat) {
-    const response = await puter.ai.chat({
-        messages: messages,
-        model: 'grok-4.3'
-    });
-    return response.message.content;
-}
-```
+For real Puter.js integration:
+1. Deploy the app on Puter (not GitHub Pages)
+2. Ensure the user is authenticated with Puter
+3. Uncomment and modify the Puter.js call in `sendToModel` function in `app.js`
 
-If Puter.js is not available or doesn't support Grok 4.3, it falls back to a mock implementation that simulates responses.
-
-To integrate with a real AI service:
-1. Modify the `sendToModel` function in `app.js`
-2. Replace the Puter.js call with your preferred AI API
-3. Update the status indicator logic as needed
+Currently, the app always uses the mock implementation for demonstration purposes.
 
 ## Browser Compatibility
 
