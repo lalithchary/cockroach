@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cockroach 1.0</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.puter.com/v2/"></script>
+</head>
+<body>
+    <header id="header">
+        <button id="sidebar-toggle" aria-label="Toggle sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+        </button>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2c-1.5 0-3 1-3 2.5v2c0 1.5 1.5 2.5 3 2.5s3-1 3-2.5v-2c0-1.5-1.5-2.5-3-2.5z"/>
+                <path d="M9 7.5c0 1.5-1.5 3-3 3s-3-1.5-3-3v-1c0-1.5 1.5-3 3-3s3 1.5 3 3v1z"/>
+                <path d="M15 7.5c0 1.5 1.5 3 3 3s3-1.5 3-3v-1c0-1.5-1.5-3-3-3s-3 1.5-3 3v1z"/>
+                <path d="M6 12c0 2-2 4-4 4v2c2 0 4 2 4 4h12c0-2 2-4 4-4v-2c-2 0-4-2-4-4"/>
+                <path d="M8 16c0 1-1 2-2 2s-2-1-2-2v-2c0-1 1-2 2-2s2 1 2 2v2z"/>
+                <path d="M16 16c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2s-2 1-2 2v2z"/>
+                <path d="M10 20c0 1-1 2-2 2s-2-1-2-2v-2c0-1 1-2 2-2s2 1 2 2v2z"/>
+                <path d="M14 20c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2s-2 1-2 2v2z"/>
+            </svg>
+            <span>cockroach 1.0</span>
+        </div>
+        <div class="header-actions">
+            <button id="new-chat" aria-label="New chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14"/>
+                </svg>
+            </button>
+            <button id="clear-chat" aria-label="Clear chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                </svg>
+            </button>
+            <button id="rename-session" aria-label="Rename session">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+            </button>
+            <button id="export-chat" aria-label="Export chat">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                    <polyline points="7,10 12,15 17,10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </button>
+            <button id="copy-last" aria-label="Copy last response">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                </svg>
+            </button>
+            <button id="scroll-bottom" aria-label="Scroll to bottom">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"/>
+                </svg>
+            </button>
+            <button id="stop-generation" aria-label="Stop generation" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                </svg>
+            </button>
+            <button id="regenerate" aria-label="Regenerate">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="23,4 23,10 17,10"/>
+                    <polyline points="1,20 1,14 7,14"/>
+                    <path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/>
+                </svg>
+            </button>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <div id="app">
+        <aside id="sidebar">
+            <div class="sidebar-header">
+                <button id="new-chat-sidebar" class="btn-primary">New Chat</button>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" placeholder="Search sessions..." id="search-sessions">
+            </div>
+            <div id="sessions-list">
+                <!-- Sessions will be rendered here -->
+            </div>
+        </aside>
+        <main id="main">
+            <div id="chat-container">
+                <div id="welcome-panel">
+                    <h1>Welcome to cockroach 1.0</h1>
+                    <p>A premium AI chat experience</p>
+                    <div class="example-prompts">
+                        <button class="prompt-chip">Explain quantum computing</button>
+                        <button class="prompt-chip">Write a haiku about coding</button>
+                        <button class="prompt-chip">Debug this JavaScript error</button>
+                    </div>
+                </div>
+                <div id="messages">
+                    <!-- Messages will be rendered here -->
+                </div>
+            </div>
+            <div id="composer">
+                <div class="composer-input">
+                    <textarea id="message-input" placeholder="Type your message..." rows="1"></textarea>
+                    <button id="send-button" aria-label="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22,2 15,22 11,13 2,9"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="composer-footer">
+                    <button id="attach-button" aria-label="Attach file" disabled>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/>
+                        </svg>
+                    </button>
+                    <button id="voice-button" aria-label="Voice input" disabled>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
+                            <path d="M19 10v2a7 7 0 01-14 0v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                    </button>
+                    <span id="model-badge">Grok 4.3</span>
+                    <span id="char-counter">0/4000</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="status-indicator">Ready</div>
+    <script src="app.js"></script>
+</body>
+</html>
